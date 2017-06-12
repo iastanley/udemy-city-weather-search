@@ -12,12 +12,17 @@ class SearchBar extends Component {
     this.setState({ searchTerm: event.target.value });
   }
 
+  onFormSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
-      <form className="input-group">
+      <form onSubmit={this.onFormSubmit} className="input-group">
         <input
           value={this.state.searchTerm}
           onChange={this.onInputChange}
+          placeholder="Get a 5-day forcast in your favorite cities"
           className="form-control"/>
         <span className="input-group-btn">
           <button type="submit" className="btn btn-secondary">
